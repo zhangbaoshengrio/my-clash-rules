@@ -44,3 +44,8 @@ payload:
   - DOMAIN-KEYWORD,openai
   - IP-CIDR,24.199.123.28/32
   - IP-CIDR,64.23.132.171/32
+  
+  # === 开发与通知服务 ===
+  # 适合放入 Auto，自动选择最快节点
+  - DOMAIN-SUFFIX,ntfy.sh
+
