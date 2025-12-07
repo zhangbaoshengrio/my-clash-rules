@@ -101763,3 +101763,5 @@ payload:
   - PROCESS-NAME,Thunder
   - PROCESS-NAME,Thunder.exe
   - PROCESS-NAME,com.qiyi.video
+  - GEOIP,CN
+  - GEOIP,LAN
