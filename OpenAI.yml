@@ -44,3 +44,86 @@ payload:
   - DOMAIN-KEYWORD,openai
   - IP-CIDR,24.199.123.28/32
   - IP-CIDR,64.23.132.171/32
+  # === AI 主域名 (Claude/Anthropic) ===
+  - DOMAIN-SUFFIX,anthropic.com
+  - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-KEYWORD,anthropic
+  - DOMAIN-KEYWORD,claude
+  
+  # === AI 登录认证 (Auth0 & ArkoseLabs) ===
+  - DOMAIN-SUFFIX,auth0.com
+  - DOMAIN-SUFFIX,arkoselabs.com
+  - DOMAIN,openai-api.arkoselabs.com
+  - DOMAIN-SUFFIX,identrust.com
+
+  # === Cloudflare 人机验证 (仅保留验证功能) ===
+  - DOMAIN,challenges.cloudflare.com
+  
+  # === AI API 和 CDN 依赖 ===
+  - DOMAIN-SUFFIX,intercom.io
+  - DOMAIN-SUFFIX,intercomcdn.com
+  - DOMAIN-SUFFIX,sentry.io
+
+  # =========================================
+  # Gemini AI 分流规则
+  # =========================================
+
+  # === Gemini 主域名 ===
+  - DOMAIN-SUFFIX,gemini.google.com
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com
+  - DOMAIN-SUFFIX,ai.google.dev
+  - DOMAIN-SUFFIX,aistudio.google.com
+  
+  # === Gemini 旧域名（Bard）===
+  - DOMAIN-SUFFIX,bard.google.com
+  - DOMAIN-SUFFIX,makersuite.google.com
+
+  # === Google AI 服务依赖 (Gemini 核心组件) ===
+  # 注意：这也会包含 Gmail/Drive 等 Google 服务流量，为保证 Gemini 稳定性必须保留
+  - DOMAIN-SUFFIX,googleapis.com
+  - DOMAIN-SUFFIX,googleusercontent.com
+  - DOMAIN-SUFFIX,clients6.google.com
+  - DOMAIN-SUFFIX,gvt1.com
+  - DOMAIN-KEYWORD,gemini
+
+  # =========================================
+  # OpenAI / ChatGPT 完整规则 (补全版)
+  # =========================================
+
+  # === 主域名 ===
+  - DOMAIN-SUFFIX,openai.com
+  - DOMAIN-SUFFIX,chatgpt.com
+  - DOMAIN-SUFFIX,ai.com
+  - DOMAIN-KEYWORD,chatgpt
+  - DOMAIN-KEYWORD,openai
+
+  # === 关键静态资源 (图标/图片/CSS) ===
+  - DOMAIN-SUFFIX,oaistatic.com
+  - DOMAIN-SUFFIX,oaiusercontent.com
+  - DOMAIN,openaicom.imgix.net
+
+  # === 语音模式与实时服务 ===
+  - DOMAIN-SUFFIX,livekit.cloud
+  - DOMAIN-SUFFIX,chatgpt.livekit.cloud
+  
+  # === 功能开关与数据统计 ===
+  - DOMAIN-SUFFIX,featuregates.org
+  - DOMAIN-SUFFIX,statsig.com
+  - DOMAIN-SUFFIX,statsigapi.net
+  - DOMAIN-SUFFIX,launchdarkly.com
+  - DOMAIN-SUFFIX,algolia.net
+  - DOMAIN-SUFFIX,segment.io
+
+  # === 微软/Azure 依赖 ===
+  - DOMAIN,openaicomproductionae4b.blob.core.windows.net
+  - DOMAIN,production-openaicom-storage.azureedge.net
+  - DOMAIN,openaiapi-site.azureedge.net
+
+
+  # =========================================
+  # 工具类规则
+  # =========================================
+  
+  # IP查询网站 (用于检测节点切换)
+  - DOMAIN-SUFFIX,ip138.com
+  - DOMAIN-SUFFIX,ipinfo.io
