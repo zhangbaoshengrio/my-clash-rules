@@ -120,10 +120,4 @@ payload:
   - DOMAIN,openaiapi-site.azureedge.net
 
 
-  # =========================================
-  # 工具类规则
-  # =========================================
-  
-  # IP查询网站 (用于检测节点切换)
-  - DOMAIN-SUFFIX,ip138.com
   - DOMAIN-SUFFIX,ipinfo.io
