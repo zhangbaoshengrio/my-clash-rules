@@ -7,5 +7,8 @@ payload:
   - DOMAIN-SUFFIX,githubassets.com
   - DOMAIN-SUFFIX,immersivetranslate.com
   - DOMAIN-SUFFIX,cliproxy.com
-
+  - DOMAIN-SUFFIX,googleapis.com
+  - DOMAIN-SUFFIX,googleusercontent.com
+  - DOMAIN-SUFFIX,gvt1.com
+  - DOMAIN-SUFFIX,android.clients.google.com
 
