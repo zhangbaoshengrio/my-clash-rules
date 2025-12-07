@@ -1,0 +1,3 @@
+# NAME: GoogleVoice
+payload:
+  - DOMAIN,voice.google.com

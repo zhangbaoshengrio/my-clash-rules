@@ -1,0 +1,8 @@
+# NAME: Twitter
+payload:
+  - DOMAIN,voice.google.com
+  - DOMAIN-SUFFIX,twitter.com
+  - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,x.com
+  - DOMAIN-SUFFIX,t.co
+  - DOMAIN-KEYWORD,twitter
