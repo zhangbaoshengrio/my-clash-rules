@@ -101765,3 +101765,10 @@ payload:
   - PROCESS-NAME,com.qiyi.video
   - GEOIP,CN
   - GEOIP,LAN
+  # === Oppo / ColorOS 系统服务 ===
+  # [span_0](start_span)[span_1](start_span)[span_2](start_span)日志来源: com.coloros.colordirectservice 和 android.uid.system 请求 gn-oc[span_0](end_span)[span_1](end_span)[span_2](end_span)
+  # 现象: 之前匹配到 Match 走了 Final 代理，建议直连
+  - DOMAIN-KEYWORD,gn-oc
+  - DOMAIN-SUFFIX,oppo.com
+  - DOMAIN-SUFFIX,coloros.com
+
