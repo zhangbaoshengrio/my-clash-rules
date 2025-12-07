@@ -1,3 +1,6 @@
-# NAME: GoogleVoice
 payload:
   - DOMAIN,voice.google.com
+  - DOMAIN-SUFFIX,stun.l.google.com
+  - DOMAIN-SUFFIX,l.google.com
+  - IP-CIDR,216.239.36.145/32
+  - IP-CIDR,74.125.39.102/32
