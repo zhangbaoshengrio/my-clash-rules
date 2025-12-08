@@ -562,6 +562,12 @@ payload:
   - DOMAIN-SUFFIX,aixinhaitun.com
   - DOMAIN-SUFFIX,brmnq.com
   - DOMAIN-SUFFIX,ciscon.org
+  # === Oppo/OnePlus 系统服务 (强制直连) ===
+  - DOMAIN-SUFFIX,heytapdl.com
+  - DOMAIN-SUFFIX,heytapmobile.com
+  - DOMAIN-SUFFIX,allawnos.com
+  - DOMAIN-SUFFIX,allawnofs.com
+  - DOMAIN-KEYWORD,oppo
   - DOMAIN-SUFFIX,cmedia360.com
   - DOMAIN-SUFFIX,dhrest.com
   - DOMAIN-SUFFIX,dhrest2.com
