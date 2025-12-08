@@ -78,3 +78,6 @@ payload:
   - DOMAIN,openaiapi-site.azureedge.net
   - DOMAIN-SUFFIX,grok.com
   - DOMAIN-SUFFIX,featureassets.org
+  - DOMAIN-SUFFIX,revenuecat.com
+  - DOMAIN-SUFFIX,prodregistryv2.org
+  - DOMAIN-SUFFIX,8-lives-cat.io
