@@ -9,4 +9,17 @@ payload:
   - DOMAIN-SUFFIX,cliproxy.com
   - DOMAIN-SUFFIX,gvt1.com
   - DOMAIN-SUFFIX,android.clients.google.com
-
+  - DOMAIN-SUFFIX,mixin.one
+  - DOMAIN-SUFFIX,zeromesh.net
+  - DOMAIN-SUFFIX,22112211.xyz
+  - DOMAIN-SUFFIX,v2ex.com
+  - DOMAIN-SUFFIX,fortress.com.hk
+  - DOMAIN-SUFFIX,airtel.in
+  - DOMAIN-SUFFIX,aicoin.net.cn
+  - DOMAIN-SUFFIX,ajinga.com
+  - DOMAIN-SUFFIX,jsdelivr.net
+  - DOMAIN-SUFFIX,esm.sh
+  - DOMAIN-SUFFIX,bugsnag.com
+  - DOMAIN-SUFFIX,hsforms.net
+  - DOMAIN-SUFFIX,cloudinary.com
+  - DOMAIN-SUFFIX,revenuecat.com
