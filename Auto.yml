@@ -1,5 +1,4 @@
 payload:
-  - DOMAIN-SUFFIX,ntfy.sh
   - DOMAIN-KEYWORD,github
   - DOMAIN-SUFFIX,github.com
   - DOMAIN-SUFFIX,github.io
