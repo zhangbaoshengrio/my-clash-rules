@@ -54,7 +54,9 @@ rules:
   - RULE-SET,Google,Google
   - RULE-SET,GoogleVoice,GoogleVoice
   - RULE-SET,Microsoft,Microsoft
-  - RULE-SET,OpenAI,AI #OpenAI的规则集包含了claude,ChatGPT,Gemini这儿AI工具我都需要他们可以走静态住宅ip,静态住宅ip的ip纯净度高,不容易封号,所以没必要把他们分开,如果你想自己分开也不是不可以,把OpenAI的yml下载下来,复制并重命名,然后把一些规则剪切到新的yml文件里面,再将这些yml文件上传到GitHub仓库里
+  - RULE-SET,OpenAI,AI
+  #OpenAI的规则集包含了claude,ChatGPT,Gemini这儿AI工具我都需要他们可以走静态住宅ip,静态住宅ip的ip纯净度高,不容易封号,
+  #所以没必要把他们分开,如果你想自己分开也不是不可以,把OpenAI的yml下载下来,复制并重命名,然后把一些规则剪切到新的yml文件里面,再将这些yml文件上传到GitHub仓库里
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,Reject,REJECT
