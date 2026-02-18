@@ -8,6 +8,7 @@
 # PROCESS-NAME: 2
 # TOTAL: 669
 payload:
+  - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,naixi.org
   - DOMAIN-SUFFIX,naixi.net
   - DOMAIN,vsmarketplacebadge.apphb.com
