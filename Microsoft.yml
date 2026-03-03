@@ -8,6 +8,13 @@
 # PROCESS-NAME: 2
 # TOTAL: 669
 payload:
+# Google Photos 核心规则
+  - DOMAIN,photos.google.com
+  - DOMAIN-SUFFIX,photos.googleapis.com
+  - DOMAIN-SUFFIX,googleusercontent.com
+  - DOMAIN-KEYWORD,photosdata-pa
+  - DOMAIN-KEYWORD,photos-pa
+
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,naixi.org
   - DOMAIN-SUFFIX,naixi.net
