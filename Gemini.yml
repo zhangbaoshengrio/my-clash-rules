@@ -1,0 +1,26 @@
+payload:
+  # === Gemini 核心域名与 API ===
+  - DOMAIN,gemini.google.com
+  - DOMAIN,aistudio.google.com
+  - DOMAIN,alkalimessages-pa.googleapis.com
+  - DOMAIN,proactive-assistant.googleapis.com
+  - DOMAIN,aida.googleapis.com
+  - DOMAIN,assistant.google.com
+  - DOMAIN,oauth2.googleapis.com
+  - DOMAIN-SUFFIX,bard.google.com
+  - DOMAIN-SUFFIX,makersuite.google.com
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com
+  - DOMAIN-SUFFIX,ai.google.dev
+  - DOMAIN-SUFFIX,googlevoiceassistant.googleapis.com
+  - DOMAIN-SUFFIX,pa-assistant.googleapis.com
+  
+  # === 2026 架构补充 (建议手动加入以保证稳定) ===
+  - DOMAIN-SUFFIX,deepmind.com
+  - DOMAIN-SUFFIX,deepmind.google
+  - DOMAIN-KEYWORD,proactivebackend
+  
+  # === 安卓 App 专项分流 (适用于一加 15) ===
+  - PROCESS-NAME,com.google.android.apps.bard
+  - PROCESS-NAME,com.google.android.apps.gemini
+  - PACKAGE-NAME,com.google.android.googlequicksearchbox
+
