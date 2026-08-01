@@ -55,8 +55,10 @@ rules:
   - RULE-SET,GoogleVoice,GoogleVoice
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,OpenAI,AI
-  #OpenAI的规则集包含了claude,ChatGPT,Gemini这儿AI工具我都需要他们可以走静态住宅ip,静态住宅ip的ip纯净度高,不容易封号,
+  #OpenAI的规则集包含了claude,ChatGPT,Grok这儿AI工具我都需要他们可以走静态住宅ip,静态住宅ip的ip纯净度高,不容易封号,
   #所以没必要把他们分开,如果你想自己分开也不是不可以,把OpenAI的yml下载下来,复制并重命名,然后把一些规则剪切到新的yml文件里面,再将这些yml文件上传到GitHub仓库里
+  - RULE-SET,Gemini,AI
+  #Gemini单独拆分成了自己的yml文件,但依然走AI这个策略组,跟OpenAI共用同一个静态住宅ip,道理跟上面一样
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,Reject,REJECT
@@ -66,6 +68,7 @@ rule-providers:
   Apple: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/Apple.yml", path: ./ruleset/Apple.yaml, interval: 86400}
   BiliBili: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/BiliBili.yml", path: ./ruleset/BiliBili.yaml, interval: 86400}
   Direct: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/Direct.yml", path: ./ruleset/Direct.yaml, interval: 86400}
+  Gemini: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/Gemini.yml", path: ./ruleset/Gemini.yaml, interval: 86400}
   Google: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/Google.yml", path: ./ruleset/Google.yaml, interval: 86400}
   Microsoft: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/Microsoft.yml", path: ./ruleset/Microsoft.yaml, interval: 86400}
   OpenAI: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/OpenAI.yml", path: ./ruleset/OpenAI.yaml, interval: 86400}
