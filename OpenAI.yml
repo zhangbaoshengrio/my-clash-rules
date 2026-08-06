@@ -17,6 +17,7 @@ payload:
   - DOMAIN-SUFFIX,stripe.com
   - DOMAIN-KEYWORD,chatgpt
   - DOMAIN-KEYWORD,openai
+  - DOMAIN-SUFFIX,arkoselabs.com
   - IP-CIDR,24.199.123.28/32
   - IP-CIDR,64.23.132.171/32
 
@@ -24,9 +25,6 @@ payload:
   - DOMAIN-SUFFIX,anthropic.com
   - DOMAIN-SUFFIX,claude.ai
   - DOMAIN-KEYWORD,anthropic
-  - DOMAIN-KEYWORD,claude
-  - DOMAIN-SUFFIX,arkoselabs.com
-  - DOMAIN,challenges.cloudflare.com
 
   # === X.AI / Grok & 其他 ===
   - DOMAIN-SUFFIX,ai.com
