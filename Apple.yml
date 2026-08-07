@@ -8,6 +8,7 @@ payload:
   - DOMAIN,beatselectronicsllc.tt.omtrdc.net
   - DOMAIN,e16991.b.akamaiedge.net
   - DOMAIN,edge.apple
+  - DOMAIN-SUFFIX,fastly-edge.com
   - DOMAIN,icons.axm-usercontent-apple.com
   - DOMAIN,lookup-api.apple.com.edgekey.net
   - DOMAIN,p-events-delivery.akamaized.net

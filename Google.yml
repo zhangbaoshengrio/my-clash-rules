@@ -308,6 +308,7 @@ payload:
   - DOMAIN-SUFFIX,google.co.za
   - DOMAIN-SUFFIX,google.co.zm
   - DOMAIN-SUFFIX,google.co.zw
+  - DOMAIN-SUFFIX,google.com
   - DOMAIN-SUFFIX,google.com.af
   - DOMAIN-SUFFIX,google.com.ag
   - DOMAIN-SUFFIX,google.com.ai
@@ -553,6 +554,7 @@ payload:
   - DOMAIN-SUFFIX,monitoring.qpdp1.net
   - DOMAIN-SUFFIX,moodstocks.com
   - DOMAIN-SUFFIX,near.by
+  - DOMAIN-SUFFIX,nel.goog
   - DOMAIN-SUFFIX,nest.com
   - DOMAIN-SUFFIX,neverware.com
   - DOMAIN-SUFFIX,nomulus.foo

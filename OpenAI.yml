@@ -1,6 +1,7 @@
 payload:
   # === OpenAI / ChatGPT ===
   - DOMAIN-KEYWORD,browser-intake
+  - DOMAIN-KEYWORD,datadoghq
   - DOMAIN,static.cloudflareinsights.com
   - DOMAIN-SUFFIX,algolia.net
   - DOMAIN-SUFFIX,auth0.com
@@ -24,6 +25,7 @@ payload:
   # === Anthropic / Claude ===
   - DOMAIN-SUFFIX,anthropic.com
   - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-SUFFIX,claude.com
   - DOMAIN-KEYWORD,anthropic
 
   # === X.AI / Grok & 其他 ===

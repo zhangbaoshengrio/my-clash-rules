@@ -41,3 +41,13 @@ payload:
   - DOMAIN-SUFFIX,nodeseek.com
   - DOMAIN-SUFFIX,wikipedia.org
 
+  # 2026-08-07 日志补充：以下域名此前全部落入 MATCH -> Others(DIRECT)
+  - DOMAIN-SUFFIX,npmjs.org
+  - DOMAIN-SUFFIX,npmjs.com
+  - DOMAIN-SUFFIX,models.dev
+  - DOMAIN-SUFFIX,saladict.net
+  - DOMAIN-SUFFIX,focusapps.app
+  - DOMAIN-SUFFIX,ntfy.sh
+  - DOMAIN-SUFFIX,adblockplus.org
+  - DOMAIN-SUFFIX,eyeo.com
+
