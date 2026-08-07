@@ -51,19 +51,21 @@ rules:
   - RULE-SET,Twitter,Twitter
   - RULE-SET,BiliBili,DIRECT
   - RULE-SET,Direct,DIRECT
-  # ⚠️ 顺序很重要：OpenAI 和 Gemini 必须排在 Google 前面。
+  # ⚠️ 顺序很重要：OpenAI / Gemini / GooglePhotos / GoogleVoice 必须排在 Google 前面。
   # Clash 是从上往下匹配、命中即停的。Google.yml 里有兜底的
-  # DOMAIN-SUFFIX,google.com 和 DOMAIN-SUFFIX,googleapis.com，
+  # DOMAIN-SUFFIX,google.com、googleapis.com、googleusercontent.com，
   # 如果 Google 排在前面，它会把 gemini.google.com、aistudio.google.com、
-  # generativelanguage.googleapis.com 全部抢走送进 Google 策略组，
-  # Gemini 就再也走不到 AI 组的静态住宅 ip 了。
+  # generativelanguage.googleapis.com、photos.google.com、voice.google.com
+  # 全部抢走送进 Google 策略组，这些子分组就再也生效不了了。
   - RULE-SET,OpenAI,AI
   #OpenAI的规则集包含了claude,ChatGPT,Grok这儿AI工具我都需要他们可以走静态住宅ip,静态住宅ip的ip纯净度高,不容易封号,
   #所以没必要把他们分开,如果你想自己分开也不是不可以,把OpenAI的yml下载下来,复制并重命名,然后把一些规则剪切到新的yml文件里面,再将这些yml文件上传到GitHub仓库里
   - RULE-SET,Gemini,AI
   #Gemini单独拆分成了自己的yml文件,但依然走AI这个策略组,跟OpenAI共用同一个静态住宅ip,道理跟上面一样
-  - RULE-SET,Google,Google
+  - RULE-SET,GooglePhotos,GooglePhotos
+  #Google相册从Microsoft.yml里拆出来单独成组,走香港节点(相册上传下载量大,香港线路延迟低)
   - RULE-SET,GoogleVoice,GoogleVoice
+  - RULE-SET,Google,Google
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
@@ -84,6 +86,7 @@ rule-providers:
   YouTube: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/YouTube.yml", path: ./ruleset/YouTube.yaml, interval: 86400}
   Twitter: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/Twitter.yml", path: ./ruleset/Twitter.yaml, interval: 86400}
   GoogleVoice: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/GoogleVoice.yml", path: ./ruleset/GoogleVoice.yaml, interval: 86400}
+  GooglePhotos: {type: http, behavior: classical, format: yaml, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/GooglePhotos.yml", path: ./ruleset/GooglePhotos.yaml, interval: 86400}
   Reject: {type: http, behavior: classical, url: "https://raw.githubusercontent.com/zhangbaoshengrio/my-clash-rules/main/Reject.yml", path: ./ruleset/Reject.yaml, interval: 86400}
   毒奶特供: {type: http, behavior: classical, format: yaml, url: "http://limbopro.xyz/Adblock4limbo.list", path: ./ruleset/limbopro.yaml, interval: 86400}
   野比(AD_Block_Plus): {type: http, behavior: classical, format: text, url: "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt", path: ./ruleset/NobyDa_AD_Plus.yaml, interval: 86400}

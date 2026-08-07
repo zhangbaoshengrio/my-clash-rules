@@ -23,10 +23,13 @@ payload:
   - IP-CIDR,64.23.132.171/32
 
   # === Anthropic / Claude ===
-  - DOMAIN-SUFFIX,anthropic.com
-  - DOMAIN-SUFFIX,claude.ai
-  - DOMAIN-SUFFIX,claude.com
+  # 目标：Claude 的所有域名一律进 AI 策略组（静态住宅 ip）
+  - DOMAIN-SUFFIX,anthropic.com          # api / mcp-proxy / a-api / a-cdn / s-cdn / assets-proxy
+  - DOMAIN-SUFFIX,claude.ai              # a.claude.ai / a-cdn.claude.ai
+  - DOMAIN-SUFFIX,claude.com             # platform.claude.com
+  - DOMAIN-SUFFIX,claudeusercontent.com  # Artifacts 沙箱
   - DOMAIN-KEYWORD,anthropic
+  - DOMAIN-KEYWORD,claude                # 兜底：将来新增的 Claude 域名自动进 AI
 
   # === X.AI / Grok & 其他 ===
   - DOMAIN-SUFFIX,ai.com

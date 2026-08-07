@@ -1,0 +1,21 @@
+payload:
+  # Google Photos 核心规则优化版
+  # 从 Microsoft.yml 拆分出来，独立成组以便单独指定节点（香港）。
+  #
+  # ⚠️ 规则顺序：本规则集必须排在 RULE-SET,Google 之前，
+  # 否则 Google.yml 里的 DOMAIN-SUFFIX,googleusercontent.com、
+  # DOMAIN-SUFFIX,googleapis.com、DOMAIN-SUFFIX,google.com 会先命中，
+  # 把相册流量抢进 Google 策略组。
+
+  - DOMAIN,photos.google.com
+  - DOMAIN-SUFFIX,photos.googleapis.com
+  - DOMAIN-KEYWORD,photosdata-pa
+  - DOMAIN-KEYWORD,photos-pa
+
+  # ⚠️ 下面两条比"仅相册"要宽，保留自原 Microsoft.yml 的写法：
+  # googleusercontent.com 覆盖 lh3~lh6 等图片 CDN，但同时也包含
+  # 头像、Drive 缩略图等全部 Google 用户内容；
+  # notifications-pa 是 Google 通用通知服务，并非相册专用。
+  # 若只想让相册本身走香港，可删掉这两条（图片可能加载变慢）。
+  - DOMAIN-SUFFIX,googleusercontent.com
+  - DOMAIN-KEYWORD,notifications-pa

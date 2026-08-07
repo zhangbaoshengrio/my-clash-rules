@@ -8,14 +8,7 @@
 # PROCESS-NAME: 2
 # TOTAL: 669
 payload:
-# Google Photos 核心规则优化版
-  - DOMAIN,photos.google.com
-  - DOMAIN-SUFFIX,photos.googleapis.com
-  - DOMAIN-SUFFIX,googleusercontent.com
-  - DOMAIN-KEYWORD,photosdata-pa
-  - DOMAIN-KEYWORD,notifications-pa
-  - DOMAIN-KEYWORD,photos-pa
-
+# Google Photos 规则已拆分到 GooglePhotos.yml（走香港节点），此处不再保留
 
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,naixi.org
