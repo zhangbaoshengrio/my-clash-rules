@@ -31,6 +31,25 @@ payload:
   - DOMAIN-KEYWORD,anthropic
   - DOMAIN-KEYWORD,claude                # 兜底：将来新增的 Claude 域名自动进 AI
 
+  # 2026-08-08 日志补充：嗅探失败时的裸 IP 兜底
+  #
+  # FlClash 日志里出现过 4 次
+  #   [Sniffer] [160.79.104.10] [tls] may not have any sent data
+  # claude.exe 建了 TCP 连接但没立刻发 ClientHello（连接池预热），
+  # 嗅探器拿不到 SNI，目标就停在裸 IP 上 —— 上面所有 DOMAIN-* 规则
+  # 全部落空，连接掉到 MATCH -> Others[🇭🇰 Svyun-CN2]。
+  # 那个出口是 103.27.79.5（AS979 NetLab Global，已被判定为 VPN 机房段），
+  # Anthropic 对它直接回 403 Request not allowed，表现为 CLI 反复要你 /login。
+  #
+  # 下面两条按 IP 兜底，让裸 IP 连接照样进 AI 组。
+  # 段来自 ARIN，整段登记给 Anthropic, PBC：
+  #   NetRange 160.79.104.0 - 160.79.111.255  →  160.79.104.0/21
+  #   NetRange 2607:6BC0::/32
+  # 加 no-resolve：只兜裸 IP 这条路径，带域名的连接由上面的规则处理，
+  # 不必为此多做一次 DNS 解析。
+  - IP-CIDR,160.79.104.0/21,no-resolve
+  - IP-CIDR6,2607:6bc0::/32,no-resolve
+
   # === X.AI / Grok & 其他 ===
   - DOMAIN-SUFFIX,ai.com
   - DOMAIN-SUFFIX,grok.com
