@@ -51,3 +51,7 @@ payload:
   - DOMAIN-SUFFIX,adblockplus.org
   - DOMAIN-SUFFIX,eyeo.com
 
+  # 2026-08-08 日志补充：此前落入 MATCH -> Others
+  - DOMAIN-SUFFIX,hcaptcha.com   # 人机验证，与上方 challenges.cloudflare.com 同类
+  - DOMAIN-SUFFIX,b-cdn.net      # BunnyCDN，jsdelivr.b-cdn.net 是 jsdelivr 的回源
+

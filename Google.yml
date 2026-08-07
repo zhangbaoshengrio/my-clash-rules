@@ -723,3 +723,7 @@ payload:
   - PROCESS-NAME,com.google.android.gsf
   - PROCESS-NAME,com.google.android.play.games
   - PROCESS-NAME,BackupandSync
+
+  # 2026-08-08 日志补充：此前落入 MATCH -> Others
+  - DOMAIN-SUFFIX,googlezip.net   # tunnel.googlezip.net，Chrome 数据压缩代理隧道
+  - DOMAIN-SUFFIX,1e100cdn.net    # benchmark.1e100cdn.net，上方只有 1e100.net

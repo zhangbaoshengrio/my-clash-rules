@@ -4,3 +4,40 @@ payload:
   - DOMAIN-SUFFIX,l.google.com
   - IP-CIDR,216.239.36.145/32
   - IP-CIDR,74.125.39.102/32
+
+  # ═══════════════════════════════════════════════════════════════
+  # 2026-08-08 追加：IP 信誉查询站点（借道本组绕开被标记的香港出口）
+  #
+  # 【为什么放这个文件，而不是新建 IPCheck.yml】
+  # 远程 yml 只能决定"哪些域名匹配"，目标策略组是 profile 里
+  # `RULE-SET,GoogleVoice,GoogleVoice` 写死的。新建 yml 必须同时改
+  # profile 的 rule-providers 和 rules 两处 —— 那就不是纯远程方案了。
+  # 本组 = [🇺🇸 静态IP-纽约, 🇹🇼 静态IP-台湾, Proxy, DIRECT]，默认走纽约，
+  # 不经过 🇭🇰 Svyun-CN2 (103.27.79.5，已被 Cloudflare 标记)。
+  #
+  # 【只收录"输入 IP 去查别人"的站点】
+  # 绝不要把 ipleak.net / browserleaks.* / dnscheck.tools / ipinfo.io /
+  # ip-api.com / ipwho.is 这类"回显你当前出口"的站点加进来 ——
+  # 它们必须留在 MATCH -> Others，否则测到的是纽约节点，
+  # 而不是你真正想体检的那个出口。
+  # ═══════════════════════════════════════════════════════════════
+
+  # --- 2026-08-07 日志中确认访问过、且吃了 403 或落在 Others 的 ---
+  - DOMAIN-SUFFIX,abuseipdb.com
+  - DOMAIN-SUFFIX,scamalytics.com
+  - DOMAIN-SUFFIX,spamhaus.org
+  - DOMAIN-SUFFIX,proxycheck.io
+  - DOMAIN-SUFFIX,greynoise.io
+  - DOMAIN-SUFFIX,blocklist.de
+  - DOMAIN-SUFFIX,shodan.io
+  - DOMAIN-SUFFIX,bgpview.io
+  - DOMAIN-SUFFIX,cymru.com
+  - DOMAIN-SUFFIX,sans.edu
+
+  # --- 同类补充（未在日志中出现，按需保留/删除）---
+  - DOMAIN-SUFFIX,ipqualityscore.com
+  - DOMAIN-SUFFIX,talosintelligence.com
+  - DOMAIN-SUFFIX,mxtoolbox.com
+  - DOMAIN-SUFFIX,criminalip.io
+  - DOMAIN-SUFFIX,projecthoneypot.org
+  - DOMAIN-SUFFIX,ipvoid.com
