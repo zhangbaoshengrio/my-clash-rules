@@ -101774,3 +101774,8 @@ payload:
   - DOMAIN-SUFFIX,oppo.com
   - DOMAIN-SUFFIX,coloros.com
 
+  # === 桌面工具更新源（2026-08-09 采集器发现，此前落入 MATCH -> Others）===
+  # 实测直连延迟：ghostty 221ms / raycast 250ms，均优于或持平走代理
+  - DOMAIN-SUFFIX,ghostty.org
+  - DOMAIN-SUFFIX,raycast.com
+
