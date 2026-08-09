@@ -77,3 +77,8 @@ payload:
   - DOMAIN-SUFFIX,maven.org               # 直连 238ms / 代理 64ms（repo1.maven.org，Maven 中央仓库）
   - DOMAIN-SUFFIX,gradle.org              # 直连 1488ms / 代理 311ms（plugins.gradle.org 及 artifacts）
 
+  # 主站直连不通（DIRECT FAIL / 代理 322ms），必须走代理。
+  # 注意：其视频分片是 v.rn198.xyz ~ v.rn253.xyz 这类独立二级域名，
+  # 本条 suffix 覆盖不到；分片目前靠 MATCH -> Others 兜底，同样是走代理。
+  - DOMAIN-SUFFIX,rou.video
+
