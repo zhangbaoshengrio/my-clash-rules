@@ -60,3 +60,20 @@ payload:
   # Sync 是长连接，稳定性比平均延迟更重要，故走代理而非直连
   - DOMAIN-SUFFIX,obsidian.md
 
+  # === 2026-08-09 采集器 11 小时数据：此前落入 MATCH -> Others ===
+  # 每条都做了 DIRECT / 代理 双向实测，下面注释里是实测延迟
+  - DOMAIN-SUFFIX,dns.google              # 直连失败 / 代理 65ms；.google 顶级域，Google.yml 的 google.com 兜不到
+  - DOMAIN-SUFFIX,tampermonkey.net        # 直连失败 / 代理 310ms
+  - DOMAIN-SUFFIX,logitech.com            # 直连失败 / 代理 203ms（updates.logitech.com）
+  - DOMAIN-SUFFIX,cloudflare-ech.com      # 直连 256ms / 代理 79ms；Chrome ECH 配置下发
+  - DOMAIN-SUFFIX,rogueamoeba.net         # 直连 470ms / 代理 284ms（Loopback 更新）
+  - DOMAIN-SUFFIX,istatmenus.app          # 直连 800ms / 代理 595ms
+  - DOMAIN-SUFFIX,pub.dev                 # 直连 259ms / 代理 274ms；Dart 包源，取稳定
+  - DOMAIN-SUFFIX,sublimetext.com         # 直连 290ms / 代理 281ms
+
+  # === 构建依赖源（java/gradle 进程，此前全部落入 MATCH -> Others）===
+  # 四个全部实测代理明显更快，plugins.gradle.org 差 5 倍
+  - DOMAIN-SUFFIX,maven.apache.org        # 直连 287ms / 代理 70ms（repo.maven.apache.org，日志中 147 次）
+  - DOMAIN-SUFFIX,maven.org               # 直连 238ms / 代理 64ms（repo1.maven.org，Maven 中央仓库）
+  - DOMAIN-SUFFIX,gradle.org              # 直连 1488ms / 代理 311ms（plugins.gradle.org 及 artifacts）
+

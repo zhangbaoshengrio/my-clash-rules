@@ -101779,3 +101779,7 @@ payload:
   - DOMAIN-SUFFIX,ghostty.org
   - DOMAIN-SUFFIX,raycast.com
 
+  # Adobe 更新检查：直连 67ms / 代理 64ms，国内有 CDN，直连即可。
+  # 只放这一个主机名，不写 adobe.com —— Adobe 其余服务未实测，避免误伤。
+  - DOMAIN-SUFFIX,armmf.adobe.com
+
