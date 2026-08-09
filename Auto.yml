@@ -82,3 +82,15 @@ payload:
   # 本条 suffix 覆盖不到；分片目前靠 MATCH -> Others 兜底，同样是走代理。
   - DOMAIN-SUFFIX,rou.video
 
+  # === 2026-08-09 第二轮采集：Notion 与 proxy-cheap ===
+  # Notion 一次使用就产生 9 个域名，分散在三个二级域名下，全部落入 MATCH -> Others
+  - DOMAIN-SUFFIX,notion.so               # www.notion.so / aif.notion.so；直连 600ms / 代理 475ms
+  - DOMAIN-SUFFIX,notion.com              # app / exp / identity / msgstore-002.app
+  - DOMAIN-SUFFIX,notionusercontent.com   # img.notionusercontent.com，直连 104ms / 代理 63ms
+
+  # 静态 IP 的购买网站。直连 2458ms 不可用；四条路径实测本节点最快（297ms）。
+  # 刻意不走 静态IP-台湾/纽约 —— 那两个 IP 就是从这里买的，
+  # 把它的后台挂在它自己的产品上会形成循环依赖：IP 一旦到期或失效，
+  # 就再也进不去后台处理。故指向自建节点。
+  - DOMAIN-SUFFIX,proxy-cheap.com
+
