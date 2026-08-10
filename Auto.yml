@@ -92,5 +92,11 @@ payload:
   # 刻意不走 静态IP-台湾/纽约 —— 那两个 IP 就是从这里买的，
   # 把它的后台挂在它自己的产品上会形成循环依赖：IP 一旦到期或失效，
   # 就再也进不去后台处理。故指向自建节点。
+  # 注意：同为 IP 购买网站的 webshare.io 走的是直连（见 Direct.yml），
+  # 因为它直连可用（~219ms），零依赖比走自建节点更稳。
   - DOMAIN-SUFFIX,proxy-cheap.com
+
+  # === 2026-08-10 采集补充 ===
+  - DOMAIN-SUFFIX,v1.mk                   # 订阅转换服务，FClash Plus 自身请求；直连 338-355ms / 代理 116-153ms
+  - DOMAIN-SUFFIX,brew.sh                 # Homebrew formulae；直连 116-156ms / 代理 59-68ms
 
