@@ -103,4 +103,6 @@ payload:
   # === 2026-08-11 采集补充 ===
   # 构建依赖源，与上面 maven/gradle 同类：直连 249-319ms / 代理 69-102ms
   - DOMAIN-SUFFIX,jitpack.io
+  # VS Code 拉 JSON schema（Code Helper (Plugin) 进程）：直连 109-118ms / 代理 62-85ms
+  - DOMAIN-SUFFIX,schemastore.org
 
