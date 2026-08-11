@@ -100,3 +100,7 @@ payload:
   - DOMAIN-SUFFIX,v1.mk                   # 订阅转换服务，FClash Plus 自身请求；直连 338-355ms / 代理 116-153ms
   - DOMAIN-SUFFIX,brew.sh                 # Homebrew formulae；直连 116-156ms / 代理 59-68ms
 
+  # === 2026-08-11 采集补充 ===
+  # 构建依赖源，与上面 maven/gradle 同类：直连 249-319ms / 代理 69-102ms
+  - DOMAIN-SUFFIX,jitpack.io
+
