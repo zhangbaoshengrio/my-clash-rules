@@ -1,6 +1,16 @@
 payload:
   - DOMAIN,voice.google.com
-  - DOMAIN-SUFFIX,stun.l.google.com
+  # 2026-08-12 移除 DOMAIN-SUFFIX,stun.l.google.com —— 它是一条死规则。
+  # profile 第 159 行 `DOMAIN-KEYWORD,stun,REJECT` 按子串匹配，永远先命中，
+  # 本规则集（第 222 行）根本轮不到。安卓日志 18:40:39 实测：
+  #   stun.l.google.com:19302 match DomainKeyword(stun) using REJECT
+  # 那次其实是芒果TV 的 WebRTC 探测（与 stun.hitv.com 同一源端口 48779），
+  # 拦截符合预期。但代价是：真要打 Google Voice 电话时同样会被拦。
+  # 想让 Voice 通话可用，必须在 profile 第 159 行【之上】加豁免，
+  # 在本文件里加任何 stun 规则都是无效的。
+  #
+  # 下面这条保留 —— 它没有死：DOMAIN-KEYWORD,stun 只吃含 "stun" 的子域名，
+  # alt1.gmail-smtp-in.l.google.com 这类照常走到本组。
   - DOMAIN-SUFFIX,l.google.com
   - IP-CIDR,216.239.36.145/32
   - IP-CIDR,74.125.39.102/32
