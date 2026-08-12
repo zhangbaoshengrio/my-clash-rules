@@ -31,6 +31,17 @@ payload:
   - DOMAIN-KEYWORD,anthropic
   - DOMAIN-KEYWORD,claude                # 兜底：将来新增的 Claude 域名自动进 AI
 
+  # 2026-08-12 安卓日志补充：Claude app 的风控请求漏出 AI 组
+  #
+  # Clash Meta for Android 日志里，com.anthropic.claude 的 27 条连接中
+  # 有 26 条走 AI[🇹🇼 静态IP-台湾]（a-api.anthropic.com / claude.ai /
+  # api.segment.io / browser-intake-us5-datadoghq.com），只有一条例外：
+  #   api3.siftscience.com  ->  MATCH -> Others[🇭🇰 Svyun-CN2]
+  # Sift 是做欺诈/风险评分的第三方服务。风控请求从一个跟会话其余流量
+  # 不同的机房 IP 过去，恰好就是它专门在抓的信号，所以必须跟 Claude
+  # 本体同出口。
+  - DOMAIN-SUFFIX,siftscience.com        # api3.siftscience.com 等
+
   # 2026-08-08 日志补充：嗅探失败时的裸 IP 兜底
   #
   # FlClash 日志里出现过 4 次
