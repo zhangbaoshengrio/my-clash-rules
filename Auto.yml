@@ -26,7 +26,15 @@ payload:
   - DOMAIN-SUFFIX,bugsnag.com
   - DOMAIN-SUFFIX,hsforms.net
   - DOMAIN-SUFFIX,cloudinary.com
-  - DOMAIN-SUFFIX,revenuecat.com
+  # 2026-08-12 移除 DOMAIN-SUFFIX,revenuecat.com —— 与 OpenAI.yml 撞车。
+  # profile 里 RULE-SET,Auto,Auto 在第 209 行，RULE-SET,OpenAI,AI 在第 219 行，
+  # 所以 Auto 先命中，把 ChatGPT 的订阅校验送去了 Auto[🇭🇰 Svyun-CN2]，
+  # 而该 app 其余流量都走 AI[🇹🇼 静态IP-台湾]：
+  #   [TCP] (com.openai.chatgpt) --> api.revenuecat.com:443
+  #         match RuleSet(Auto) using Auto[🇭🇰 Svyun-CN2]
+  # RevenueCat 管订阅计费，出口 IP 与主体不一致属于敏感项。
+  # 删掉本条后落到 OpenAI.yml:68 的同名规则，ChatGPT 全流量出口统一。
+  # 三份日志里 revenuecat 只被访问过 2 次，来源都是 ChatGPT，无其他消费者。
   - DOMAIN-SUFFIX,bgr.pn
   - DOMAIN-SUFFIX,biggerpan.com
   - DOMAIN-SUFFIX,apkpure.com
