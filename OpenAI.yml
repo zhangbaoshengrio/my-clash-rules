@@ -61,6 +61,15 @@ payload:
   - IP-CIDR,160.79.104.0/21,no-resolve
   - IP-CIDR6,2607:6bc0::/32,no-resolve
 
+  # === Perplexity ===
+  # 2026-08-12 安卓日志：ai.perplexity.app.android 出口分裂 —— 它的
+  # api.revenuecat.com 因为本文件的规则走了 AI[🇹🇼 静态IP-台湾]，
+  # 但主站掉到 MATCH -> Others[🇭🇰 Svyun-CN2]：
+  #   (ai.perplexity.app.android) --> www.perplexity.ai:443 match Match using Others
+  # 同一个 app 两个出口，跟 ChatGPT 当初 revenuecat 撞车是同一类问题。
+  - DOMAIN-SUFFIX,perplexity.ai
+  - DOMAIN-SUFFIX,eppo.cloud             # nxj0g7.fscdn.eppo.cloud，实验/特性开关，同 statsig
+
   # === X.AI / Grok & 其他 ===
   - DOMAIN-SUFFIX,ai.com
   - DOMAIN-SUFFIX,grok.com
