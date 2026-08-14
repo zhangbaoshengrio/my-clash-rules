@@ -101814,3 +101814,10 @@ payload:
   # 端口 2095 是 TLS 1.3（curl 实测 https 通、http 无响应），直连不会明文暴露口令。
   - DOMAIN-SUFFIX,970913.xyz
 
+  # === 2026-08-15 ===
+  # Raycast 的另一个二级域名（api.ray.so）。上面的 raycast.com 覆盖不到它，
+  # 必须单列 —— 同 logitech.com / logitechg.com 那对，而那两个结论还是相反的。
+  # 这里跟 raycast.com 一起走直连，是为了同一产品出口一致，而不是延迟：
+  # 实测直连 85-546ms / 代理 60-392ms，两边都抖，快的样本里差距很小。
+  - DOMAIN-SUFFIX,ray.so
+

@@ -114,3 +114,8 @@ payload:
   # VS Code 拉 JSON schema（Code Helper (Plugin) 进程）：直连 109-118ms / 代理 62-85ms
   - DOMAIN-SUFFIX,schemastore.org
 
+  # === 2026-08-15：两天单配置数据（37379 conns / 659 域名）里"反复出现"的兜底项 ===
+  # 只收复现的（首末间隔 >2h），单次爆发的不收 —— 那些多是 DNS 泄漏测试的随机主机名
+  - DOMAIN-SUFFIX,unpkg.com        # npm CDN；直连 358/1052/1730ms 极不稳，代理 117-169ms
+  - DOMAIN-SUFFIX,adtidy.org       # AdGuard 规则下发；直连 858-1722ms / 代理 467-596ms
+
