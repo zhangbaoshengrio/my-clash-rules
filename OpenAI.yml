@@ -80,3 +80,8 @@ payload:
   - DOMAIN-SUFFIX,livekit.cloud
   - DOMAIN-SUFFIX,statsig.com
   - DOMAIN-SUFFIX,statsigapi.net
+  # oaistatsig.com 是 OpenAI 自建的 Statsig 实例，与上面的 statsig.com 是
+  # 两个独立可注册域名，那条 suffix 覆盖不到它。此前 api.oaistatsig.com
+  # 落入 MATCH -> Others[🇭🇰 Svyun-CN2]，而 ChatGPT 其余流量走 AI[🇹🇼 静态IP-台湾]，
+  # 与当初 revenuecat 撞车属于同一类：同一个 app 两个出口。
+  - DOMAIN-SUFFIX,oaistatsig.com
