@@ -31,6 +31,33 @@ payload:
   - DOMAIN-KEYWORD,anthropic
   - DOMAIN-KEYWORD,claude                # 兜底：将来新增的 Claude 域名自动进 AI
 
+  # 2026-08-16 采集器：Claude 桌面端 Google 登录失败
+  # "There was an error logging you in."
+  #
+  # 19:55:57-19:56:30 进程 Claude Helper 的一次登录分裂成两个出口：
+  #   js.hcaptcha.com / api.hcaptcha.com / *.w.hcaptcha.com
+  #                                       -> Auto[🇭🇰 Svyun-CN2]
+  #   claude.com / www.anthropic.com / s-cdn.anthropic.com
+  #                                       -> AI[🇹🇼 静态IP-台湾]
+  # hCaptcha 的 token 绑定解题时的 IP：香港解题、台湾提交，token 被判无效。
+  #
+  # 上面那些 DOMAIN-* 规则按域名收 Claude，但收不到 hCaptcha —— 而
+  # hcaptcha.com 又不能整条搬进本文件，否则所有 app 的验证码都会走
+  # 静态住宅 IP。改成按进程收：Claude 桌面端做的一切（含验证码、含将来
+  # 任何没见过的第三方域名）都进 AI 组，其余 app 完全不受影响。
+  #
+  # 进程名必须写 macOS 上的真实名字。profile 里原有的
+  #   PROCESS-NAME,com.anthropic.claude -> AI
+  # 是 Android 包名，在 macOS 上 0 次命中（采集器全量数据核对过）；
+  # macOS 报的是 "Claude Helper"。
+  #
+  # 另外两个 claude 相关进程有意不收：
+  #   claude.exe       Claude Code CLI，已由上面的 DOMAIN-SUFFIX 和
+  #                    IP-CIDR,160.79.104.0/21 覆盖
+  #   claudepot-tauri  第三方工具，还会访问 formulae.brew.sh，
+  #                    整进程收会把 Homebrew 也拖进静态 IP
+  - PROCESS-NAME,Claude Helper
+
   # 2026-08-12 安卓日志补充：Claude app 的风控请求漏出 AI 组
   #
   # Clash Meta for Android 日志里，com.anthropic.claude 的 27 条连接中

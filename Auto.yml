@@ -60,7 +60,23 @@ payload:
   - DOMAIN-SUFFIX,eyeo.com
 
   # 2026-08-08 日志补充：此前落入 MATCH -> Others
-  - DOMAIN-SUFFIX,hcaptcha.com   # 人机验证，与上方 challenges.cloudflare.com 同类
+  #
+  # 2026-08-16 移除 hcaptcha.com（原本在这里，注释是「人机验证，与上方
+  # challenges.cloudflare.com 同类」）。原因：Claude 桌面端登录失败，
+  # 报 "There was an error logging you in."
+  #
+  # 采集器 19:55:57-19:56:30，进程 Claude Helper 一次登录用了两个出口：
+  #   js.hcaptcha.com / api.hcaptcha.com  -> Auto[🇭🇰 Svyun-CN2]
+  #   claude.com / *.anthropic.com        -> AI[🇹🇼 静态IP-台湾]
+  # hCaptcha 把 token 绑定到解题时的 IP，香港解题、台湾提交，
+  # Anthropic 后端判 token 无效 —— 与 revenuecat / siftscience /
+  # oaistatsig 是同一类「同一个 app 两个出口」。
+  #
+  # 关键是加载顺序：本文件是第 23 条规则，OpenAI.yml 是第 29 条，
+  # 所以只要 hcaptcha.com 还留在这里，OpenAI.yml 就永远看不到它。
+  # 改法见 OpenAI.yml 的 PROCESS-NAME,Claude Helper —— 只把 Claude 自己的
+  # 验证码请求收进 AI 组，其余 app 的 hCaptcha 不再显式指定（落 MATCH ->
+  # Others），避免把整个验证码信誉绑在那个静态住宅 IP 上。
   - DOMAIN-SUFFIX,b-cdn.net      # BunnyCDN，jsdelivr.b-cdn.net 是 jsdelivr 的回源
 
   # 2026-08-09 采集器发现：sync-22.obsidian.md 此前落入 MATCH -> Others
