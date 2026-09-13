@@ -56,6 +56,22 @@ payload:
   #                    IP-CIDR,160.79.104.0/21 覆盖
   #   claudepot-tauri  第三方工具，还会访问 formulae.brew.sh，
   #                    整进程收会把 Homebrew 也拖进静态 IP
+  #
+  # 2026-09-13 补充：上面这条 PROCESS-NAME 对 Claude Helper 的 TCP 连接
+  # 生效（实测 3/7 命中，正确进 AI 组），但对它的 UDP/QUIC 连接完全无效——
+  # 这些连接 dnsMode=normal、rule=''，直接 DIRECT 漏出家庭真实 IP，
+  # 命中 claude.ai / claude.com / assets-proxy.anthropic.com /
+  # a-api.anthropic.com。四次排查都没能解释 PROCESS-NAME 为什么在 UDP
+  # 上不生效（不要再猜机制，已经排查过）。
+  #
+  # 本文件下面 README 里那条 UDP/3478（WebRTC STUN）REJECT 规则证明了
+  # 纯 NETWORK+DST-PORT 的 AND 规则在这套环境里确实会被求值、也确实能拦
+  # 住 UDP（1038 次真实命中）——跟 PROCESS-NAME/IP-CIDR 需要额外查表不同，
+  # NETWORK 和 DST-PORT 直接读包头就有，不依赖进程归因或域名解析。
+  # 用同样的手法，把端口和 Anthropic 的 /21 网段一起 AND 起来，武断阻断
+  # 这条泄漏的 UDP/443 路径，逼 Claude Helper 回落到已经证明能正确走
+  # 代理的 TCP。收窄到这个 /21 段，不影响其它任何 app 的 QUIC/443。
+  - AND,((NETWORK,udp),(DST-PORT,443),(IP-CIDR,160.79.104.0/21,no-resolve)),REJECT
   - PROCESS-NAME,Claude Helper
 
   # 2026-08-12 安卓日志补充：Claude app 的风控请求漏出 AI 组
