@@ -64,14 +64,17 @@ payload:
   # a-api.anthropic.com。四次排查都没能解释 PROCESS-NAME 为什么在 UDP
   # 上不生效（不要再猜机制，已经排查过）。
   #
-  # 本文件下面 README 里那条 UDP/3478（WebRTC STUN）REJECT 规则证明了
-  # 纯 NETWORK+DST-PORT 的 AND 规则在这套环境里确实会被求值、也确实能拦
-  # 住 UDP（1038 次真实命中）——跟 PROCESS-NAME/IP-CIDR 需要额外查表不同，
-  # NETWORK 和 DST-PORT 直接读包头就有，不依赖进程归因或域名解析。
-  # 用同样的手法，把端口和 Anthropic 的 /21 网段一起 AND 起来，武断阻断
-  # 这条泄漏的 UDP/443 路径，逼 Claude Helper 回落到已经证明能正确走
-  # 代理的 TCP。收窄到这个 /21 段，不影响其它任何 app 的 QUIC/443。
-  - AND,((NETWORK,udp),(DST-PORT,443),(IP-CIDR,160.79.104.0/21,no-resolve)),REJECT
+  # 试过在这里加一条
+  #   AND,((NETWORK,udp),(DST-PORT,443),(IP-CIDR,160.79.104.0/21,no-resolve)),REJECT
+  # 想复用 README 里 UDP/3478（WebRTC STUN）REJECT 规则的思路——但那条
+  # 规则其实不在任何 rule-provider 文件里，而是写在 Clash Verge 的
+  # clash-verge.yaml 顶层 rules: 列表（"全局规则" GUI 功能，机器本地，
+  # 不进这个仓库，见 clash-phone-profile-not-in-repo 记忆）。behavior:
+  # classical 的 rule-provider 文件不支持 AND/OR/NOT 逻辑组合规则——加了会
+  # 被 mihomo 静默丢弃（不报错，ruleCount 刷新后原样不变），2026-09-13 用
+  # /providers/rules 的 ruleCount 实测确认。**这条规则真正生效的地方是
+  # 本机 Clash Verge 的"全局规则"设置里，不是这个仓库**，本文件不再放
+  # 这条规则本身，避免看起来在生效实际是死代码。
   - PROCESS-NAME,Claude Helper
 
   # 2026-08-12 安卓日志补充：Claude app 的风控请求漏出 AI 组
