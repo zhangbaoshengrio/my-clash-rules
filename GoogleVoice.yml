@@ -23,7 +23,7 @@ payload:
   # `RULE-SET,GoogleVoice,GoogleVoice` 写死的。新建 yml 必须同时改
   # profile 的 rule-providers 和 rules 两处 —— 那就不是纯远程方案了。
   # 本组 = [🇺🇸 静态IP-纽约, 🇹🇼 静态IP-台湾, Proxy, DIRECT]，默认走纽约，
-  # 不经过 🇭🇰 Svyun-CN2 (103.27.79.5，已被 Cloudflare 标记)。
+  # 不经过 🇭🇰 Svyun-CN2（该节点已被 Cloudflare 标记）。
   #
   # 【只收录"输入 IP 去查别人"的站点】
   # 绝不要把 ipleak.net / browserleaks.* / dnscheck.tools / ipinfo.io /
