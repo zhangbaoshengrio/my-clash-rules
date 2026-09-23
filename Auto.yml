@@ -10,8 +10,6 @@ payload:
   - DOMAIN-SUFFIX,cliproxy.com
   - DOMAIN-SUFFIX,gvt1.com
   - DOMAIN-SUFFIX,android.clients.google.com
-  - DOMAIN-SUFFIX,mixin.one
-  - DOMAIN-SUFFIX,zeromesh.net
   - DOMAIN-SUFFIX,22112211.xyz
   - DOMAIN-SUFFIX,fortress.com.hk
   - DOMAIN-SUFFIX,airtel.in
