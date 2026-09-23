@@ -101811,3 +101811,13 @@ payload:
   # 实测直连 85-546ms / 代理 60-392ms，两边都抖，快的样本里差距很小。
   - DOMAIN-SUFFIX,ray.so
 
+  # === 2026-09-23 采集补充 ===
+  # Mixin 的实时长连接 blaze.mixin.one / mixin-blaze.zeromesh.net 经由
+  # Proxy 组当前节点（VLESS）每次存活约 10 秒就被无错误地静默断开，
+  # 迫使 app 反复重连、界面卡在"Connecting"。87 秒的一次性 API 调用
+  # （api.route.mixin.one）不受影响、由对端正常关闭——只有长连接被
+  # 按固定周期回收，符合代理链路上某处 idle/read timeout 设置过短的特征，
+  # 而非域名匹配或 Mixin 服务端的问题。改走直连规避这个超时。
+  - DOMAIN-SUFFIX,mixin.one
+  - DOMAIN-SUFFIX,zeromesh.net
+
