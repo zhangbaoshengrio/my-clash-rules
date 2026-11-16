@@ -13,6 +13,18 @@ payload:
   - DOMAIN-SUFFIX,22112211.xyz
   - DOMAIN-SUFFIX,fortress.com.hk
   - DOMAIN-SUFFIX,airtel.in
+  # 2026-11-16 印度：Amazon India app、Airtel/Wynk 及其 SDK（原先落到 Others 走台湾）
+  - DOMAIN-SUFFIX,amazon.in
+  - DOMAIN-SUFFIX,amazon.com
+  - DOMAIN-SUFFIX,media-amazon.com
+  - DOMAIN-SUFFIX,ssl-images-amazon.com
+  - DOMAIN-SUFFIX,amazon-adsystem.com
+  - DOMAIN-SUFFIX,amazon.dev
+  - DOMAIN-SUFFIX,a2z.com
+  - DOMAIN-SUFFIX,bsbportal.com
+  - DOMAIN-SUFFIX,wynk.in
+  - DOMAIN-SUFFIX,moengage.com
+  - DOMAIN-SUFFIX,branch.io
   - DOMAIN-SUFFIX,aicoin.net.cn
   - DOMAIN-SUFFIX,ajinga.com
   - DOMAIN-SUFFIX,jsdelivr.net
