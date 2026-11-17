@@ -49,6 +49,12 @@ payload:
   - DOMAIN-SUFFIX,igexin.com
   - DOMAIN-SUFFIX,gitlab-o11y.com
   - DOMAIN-SUFFIX,nodeseek.org
+  # 2026-11-18 又一批 SDK（小红书/长桥/小米智能家居）
+  - DOMAIN-SUFFIX,appsflyersdk.com
+  - DOMAIN-SUFFIX,singular.net
+  - DOMAIN-SUFFIX,analytics.tiktok.com
+  - DOMAIN-SUFFIX,getui.net
+  - DOMAIN-SUFFIX,jpush.io
   - DOMAIN-SUFFIX,aicoin.net.cn
   - DOMAIN-SUFFIX,ajinga.com
   - DOMAIN-SUFFIX,jsdelivr.net
