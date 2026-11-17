@@ -25,6 +25,30 @@ payload:
   - DOMAIN-SUFFIX,wynk.in
   - DOMAIN-SUFFIX,moengage.com
   - DOMAIN-SUFFIX,branch.io
+  # 2026-11-17 印度安卓日志里落到 Others 的：银行/WhatsApp/广告与推送 SDK/遥测
+  - DOMAIN-SUFFIX,bdtelemetry.amazon
+  - DOMAIN-SUFFIX,siege-amazon.com
+  - DOMAIN-SUFFIX,airtelbank.com
+  - DOMAIN-SUFFIX,airtelpayments.bank.in
+  - DOMAIN-SUFFIX,whatsapp.net
+  - DOMAIN-SUFFIX,whatsapp.com
+  - DOMAIN-SUFFIX,oneplus.in
+  - DOMAIN-SUFFIX,applovin.com
+  - DOMAIN-SUFFIX,applvn.com
+  - DOMAIN-SUFFIX,pangle.io
+  - DOMAIN-SUFFIX,tiktokpangle.us
+  - DOMAIN-SUFFIX,pglstatp.com
+  - DOMAIN-SUFFIX,vungle.com
+  - DOMAIN-SUFFIX,rayjump.com
+  - DOMAIN-SUFFIX,mtgglobals.com
+  - DOMAIN-SUFFIX,ctobsnssdk.com
+  - DOMAIN-SUFFIX,scorecardresearch.com
+  - DOMAIN-SUFFIX,onetrust.io
+  - DOMAIN-SUFFIX,getui.com
+  - DOMAIN-SUFFIX,gepush.com
+  - DOMAIN-SUFFIX,igexin.com
+  - DOMAIN-SUFFIX,gitlab-o11y.com
+  - DOMAIN-SUFFIX,nodeseek.org
   - DOMAIN-SUFFIX,aicoin.net.cn
   - DOMAIN-SUFFIX,ajinga.com
   - DOMAIN-SUFFIX,jsdelivr.net

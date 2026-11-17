@@ -5,6 +5,10 @@ payload:
   - DOMAIN-SUFFIX,tailscale.io
   - IP-CIDR,100.64.0.0/10,no-resolve
   - IP-CIDR6,fd7a:115c:a1e0::/48,no-resolve
+  # 2026-11-17 国内 app（酷安、网易 UU）原先落到 Others 走台湾
+  - DOMAIN-SUFFIX,checktrustworthiness.com
+  - IP-CIDR,103.49.62.142/32,no-resolve
+  - IP-CIDR,43.230.8.234/32,no-resolve
   - DOMAIN-SUFFIX,chinasc.com.cn
   - DOMAIN-SUFFIX,naixinternet.com
   - DOMAIN,cpro.baidustatic.com
