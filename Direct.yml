@@ -11,6 +11,8 @@ payload:
   - IP-CIDR,43.230.8.234/32,no-resolve
   # 豆包输入法的 WebView 配置域名（TikTok.yml 里有 ttwebview.com，但安卓配置没命中，落到 Others 走台湾；只精确放行这一个，不动 TikTok 的其他 ttwebview 域名）
   - DOMAIN,settings.ttwebview.com
+  # 豆包输入法整个 app 一律直连（以后它新增的任何域名也不会再落到 Others）
+  - PROCESS-NAME,com.bytedance.android.doubaoime
   - DOMAIN-SUFFIX,chinasc.com.cn
   - DOMAIN-SUFFIX,naixinternet.com
   - DOMAIN,cpro.baidustatic.com
