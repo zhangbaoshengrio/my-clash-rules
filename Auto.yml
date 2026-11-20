@@ -55,6 +55,10 @@ payload:
   - DOMAIN-SUFFIX,analytics.tiktok.com
   - DOMAIN-SUFFIX,getui.net
   - DOMAIN-SUFFIX,jpush.io
+  # 2026-11-20 嘉信理财 Charles Schwab：在国内走 Proxy（Auto 对应 Proxies）
+  - DOMAIN-SUFFIX,schwab.com
+  - DOMAIN-SUFFIX,glance.net
+  - DOMAIN,charlesschwab.data.adobedc.net
   - DOMAIN-SUFFIX,aicoin.net.cn
   - DOMAIN-SUFFIX,ajinga.com
   - DOMAIN-SUFFIX,jsdelivr.net
